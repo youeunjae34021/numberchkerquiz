@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>숫자 맞추기 게임</h1>
+    <br>
+    <h3>위 게임은 프로그램에서 생성한 숫자를 맞추면 되는 게임입니다</h3>
+    <script>
+        let life = 10;
+        let hint;
+        let Y = Math.floor(Math.random() * 100);
+        function same()
+        {
+            let X = parseInt(document.getElementById("X").value)
+            console.log(X)
+            if(Y != X)
+            {
+                life -=1;
+                if(X > Y)
+                {
+                    hint  = "높습니다";
+                    document.getElementById("hint").value=hint;
+                    
+                }
+                else if(X < Y)
+                {
+                    hint = "낮습니다";
+                    document.getElementById("hint").value=hint;
+                    
+                }
+                
+            }
+            else if(Y == X)
+            {
+                hint = "어케맞춤";
+                document.getElementById("hint").value=hint;
+            }
+            document.getElementById("life").value=life;
+
+            if(life ==0)
+            {
+                window.close();
+            }
+        }
+        
+        
+        
+        
+    </script>
+<form action="" method="POST">
+    숫자 : <input id="X"/><br/>
+    힌트 : <input id="hint"/><br/>
+    
+
+</form>
+남은 목숨 : <input id="life"/><br/>
+<input type="button" value="확인" onclick="same();"/>
+<script>
+
+</script>
+</body>
+</html>
